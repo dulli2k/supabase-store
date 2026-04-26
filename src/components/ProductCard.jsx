@@ -1,7 +1,17 @@
 export default function ProductCard({ product }) {
+  const imageUrl = product.image_url?.includes("?")
+    ? `${product.image_url}&auto=format&fit=crop&w=400&q=60`
+    : `${product.image_url}?auto=format&fit=crop&w=400&q=60`;
+
   return (
     <div className="card">
-      <img src={product.image_url} alt={product.name} />
+      <img
+        src={imageUrl}
+        alt={product.name}
+        loading="lazy"
+        width="400"
+        height="260"
+      />
 
       <div className="card-body">
         <p className="category">{product.category}</p>
