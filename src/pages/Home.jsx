@@ -14,8 +14,7 @@ export default function Home() {
     const { data, error } = await supabase
       .from("products")
       .select("*")
-      .order("id", { ascending: true })
-      .limit(6);
+      .order("id", { ascending: true });
 
     if (error) {
       console.error(error);
